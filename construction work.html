@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction</title>
+    <link rel="stylesheet" href="construction work.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section id="service">
+        <div class="title-text">
+            <p>Services Offered</p>
+        </div>
+        <div class="service-box">
+            <div class="single-service">
+                <img src="./images/construction-1.jpeg">
+                <div class="service-desc">
+                    <h3>Foundation Work</h3>
+                    <hr>
+                    <p>Foundation work involves constructing the base upon which a building or structure will be erected.
+                         This may include pouring concrete footings, laying foundation walls, and installing reinforcement
+                          to support the weight of the structure.</p>
+                </div>
+                <div class="popup">
+                    <div class="popup-content">
+                      <span class="close">&times;</span>
+                      <div class="popup-header">
+                        <h2>Construction</h2>
+                        <p>Building your vision, brick by brick</p>
+                      </div>
+                      <div class="persons-container">
+                        <div class="person">
+                          <div class="person-image">
+                            <img src="./images/constructions-2.webp" alt="Person Image">
+                            <div class="person-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-half"></i>
+                              <span>(888)</span>
+                            </div>
+                          </div>
+                          <div class="person-info">
+                            <h3>SCRK Constructions</h3>
+                            <ul>
+                                <li>Custom home construction</li>
+                                <li>Residential construction services</li>
+                                <li>Commercial construction services</li>
+                                <li>Construction consultation and planning</li>
+                                <li>Building renovation and restoration</li>
+                            </ul>
+                            <a href="https://wa.me/9137966425" class="whatsapp-btn">
+                              <i class="fa fa-whatsapp"></i> Contact on WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                        <div class="person">
+                          <div class="person-image">
+                            <img src="./images/constructions-3.jpg" alt="Person Image">
+                            <div class="person-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-half-alt"></i>
+                              <span>(765)</span>
+                            </div>
+                          </div>
+                          <div class="person-info">
+                            <h3>LegacyBuilders Group</h3>
+                            <ul>
+                                <li>Custom home construction</li>
+                                <li>Residential construction services</li>
+                                <li>Commercial construction services</li>
+                                <li>Construction consultation and planning</li>
+                                <li>Building renovation and restoration</li>
+                            </ul>
+                            <a href="https://wa.me/9137966425" class="whatsapp-btn">
+                              <i class="fa fa-whatsapp"></i> Contact on WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn" onclick="openModal()"> Previous Works </button>
+                    <div id="modal" class="modal">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button class="back-button" onclick="closeModal()">
+                            <i class="fa fa-arrow-left"></i> Back
+                          </button>
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                        </div>
+                        <div class="image-grid">
+                          <img src="./images/prevconstruct-1.webp" alt="Image 1">
+                          <img src="./images/prevconstruct-2.webp" alt="Image 2">
+                          <img src="./images/prevconstruct-3.webp" alt="Image 3">
+                          <img src="./images/prevconstruct-4.webp" alt="Image 4">
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/construction-2.jpeg">
+                <div class="service-desc">
+                    <h3>Structural Framing</h3>
+                    <hr>
+                    <p> Involves erecting the framework of a building or structure. This may include assembling steel or timber frames,
+                         installing floor joists, wall studs, and roof trusses, and securing them in place to 
+                         create the skeleton of the building.</p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/construction-3.jpeg">
+                <div class="service-desc">
+                    <h3>Roofing and Siding</h3>
+                    <hr>
+                    <p>Roofing and siding work involves installing roofing materials, such as shingles, tiles, or metal panels,
+                         to protect the building from the elements. Siding installation involves applying exterior cladding materials,
+                          such as vinyl, wood, or fiber cement, to the walls of the building for insulation and aesthetics. </p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/construction-4.jpeg">
+                <div class="service-desc">
+                    <h3>Interior Finishing</h3>
+                    <hr>
+                    <p>Interior finishing involves installing interior elements and finishes to complete the building's interior spaces.
+                         This may include hanging drywall, installing flooring, trim, doors, and windows, painting, 
+                         and applying decorative finishes to walls and ceilings. </p>
+                         <button class="popup-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Previous work-->
+    <script>
+      function openModal() {
+        document.getElementById("modal").style.display = "block";
+      }
+    
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+    
+     <!--Review-->
+     <section id="reviews">
+      <div class="title-text">
+          <p>Reviews</p>
+      </div>
+      <div class="review-container">
+          <ul id="review-list"></ul>
+          <div class="review-form">
+              <h3>Leave a Review</h3>
+              <input type="text" id="review-name" placeholder="Your Name" />
+              <textarea id="review-text" placeholder="Your Review"></textarea>
+              <button type="submit" id="submit">submit</button>
+          </div>
+      </div>
+  </section>
+
+<!--Review-->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+  import { getFirestore, setDoc, addDoc, doc, collection } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJC4jpwI1QLmMaVoRDekJSrYnkcaBX3Y8",
+authDomain: "helping-hands-3df2b.firebaseapp.com",
+databaseURL: "https://helping-hands-3df2b-default-rtdb.firebaseio.com",
+projectId: "helping-hands-3df2b",
+storageBucket: "helping-hands-3df2b.appspot.com",
+messagingSenderId: "647080934849",
+appId: "1:647080934849:web:a6edf30d62931f8dd28340",
+measurementId: "G-XKGP9ZJ168"
+    };
+
+    // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const db = getFirestore(app);
+   submit.addEventListener('click', (e) => {
+
+    var name = document.getElementById('review-name');
+    var message = document.getElementById('review-text');
+    addDoc(collection(db, "review"),{
+      name : name.value,
+      message : message.value
+    });
+    alert('Review send successfull');
+   })
+</script>
+
+    <script>
+        const popupButtons = document.querySelectorAll('.popup-button');
+const popups = document.querySelectorAll('.popup');
+const closeButtons = document.querySelectorAll('.close');
+
+popupButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        popups[index].style.display = 'block';
+    });
+});
+
+closeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        popups.forEach((popup) => {
+            popup.style.display = 'none';
+        });
+    });
+});
+
+popups.forEach((popup) => {
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+</html>

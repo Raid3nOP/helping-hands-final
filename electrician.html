@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician</title>
+    <link rel="stylesheet" href="electrician.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section id="service">
+        <div class="title-text">
+            <p>Services Offered</p>
+        </div>
+        <div class="service-box">
+            <div class="single-service">
+                <img src="./images/electrician-1.jpg">
+                <div class="service-desc">
+                    <h3>Residential Electrical Work</h3>
+                    <hr>
+                    <p> Electricians in residential settings install, repair, and maintain electrical systems in homes and apartments.
+                         This includes wiring installation, electrical panel upgrades, circuit breaker replacement,
+                          outlet and switch installation, lighting installation, ceiling fan installation, and appliance connections.</p>
+                </div>
+                <div class="popup">
+                    <div class="popup-content">
+                      <span class="close">&times;</span>
+                      <div class="popup-header">
+                        <h2>Electricians</h2>
+                        <p>Plugging in perfection, every time.</p>
+                      </div>
+                      <div class="persons-container">
+                        <div class="person">
+                          <div class="person-image">
+                            <img src="./images/electric-1.webp" alt="Person Image">
+                            <div class="person-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-half"></i>
+                              <span>(360)</span>
+                            </div>
+                          </div>
+                          <div class="person-info">
+                            <h3>VoltVision</h3>
+                            <ul>
+                                <li>Residential electrical installations</li>
+                                <li>Commercial electrical installations</li>
+                                <li>Electrical repair and maintenance</li>
+                                <li>Electrical consultation and planning</li>
+                                <li>Lighting installation and design</li>
+                            </ul>
+                            <a href="https://wa.me/9137966425" class="whatsapp-btn">
+                              <i class="fa fa-whatsapp"></i> Contact on WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                        <div class="person">
+                          <div class="person-image">
+                            <img src="./images/electric-2.jpg" alt="Person Image">
+                            <div class="person-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-half-alt"></i>
+                              <span>(220)</span>
+                            </div>
+                          </div>
+                          <div class="person-info">
+                            <h3>WattWorks Electrical</h3>
+                            <ul>
+                                <li>Residential electrical installations</li>
+                                <li>Commercial electrical installations</li>
+                                <li>Electrical repair and maintenance</li>
+                                <li>Electrical consultation and planning</li>
+                                <li>Lighting installation and design</li>
+                            </ul>
+                            <a href="https://wa.me/9137966425" class="whatsapp-btn">
+                              <i class="fa fa-whatsapp"></i> Contact on WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn" onclick="openModal()"> Previous Works </button>
+                    <div id="modal" class="modal">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button class="back-button" onclick="closeModal()">
+                            <i class="fa fa-arrow-left"></i> Back
+                          </button>
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                        </div>
+                        <div class="image-grid">
+                          <img src="./images/prevelec-1.jpg" alt="Image 1">
+                          <img src="./images/prevelec-3.jpg" alt="Image 2">
+                          <img src="./images/prevelec-4.jpg" alt="Image 3">
+                          <img src="./images/prevelec-2.jpeg" alt="Image 4">
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/electrician-2.jpg">
+                <div class="service-desc">
+                    <h3>Commercial Electrical Work</h3>
+                    <hr>
+                    <p>Commercial electricians work on electrical systems in commercial buildings,
+                         offices, retail stores, restaurants, and other non-residential settings. </p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/electrician-3.jpg">
+                <div class="service-desc">
+                    <h3>Construction Electrical Work</h3>
+                    <hr>
+                    <p>Electricians are responsible for installing electrical systems 
+                        in new construction projects, including residential, commercial, and industrial buildings.
+                         This involves reading blueprints, running wiring, installing electrical fixtures, and ensuring 
+                         compliance with building codes and safety regulations. </p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/electrician-4.jpg">
+                <div class="service-desc">
+                    <h3>Maintenance and Repair</h3>
+                    <hr>
+                    <p>Electricians perform routine maintenance and repair work to ensure the safety and functionality
+                         of electrical systems. This may involve troubleshooting electrical problems, diagnosing issues
+                          with wiring or equipment, repairing faulty components, and replacing worn-out or damaged parts. </p>
+                          <button class="popup-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Previous work-->
+    <script>
+      function openModal() {
+        document.getElementById("modal").style.display = "block";
+      }
+    
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+    
+    <!--Review-->
+    <section id="reviews">
+      <div class="title-text">
+          <p>Reviews</p>
+      </div>
+      <div class="review-container">
+          <ul id="review-list"></ul>
+          <div class="review-form">
+              <h3>Leave a Review</h3>
+              <input type="text" id="review-name" placeholder="Your Name" />
+              <textarea id="review-text" placeholder="Your Review"></textarea>
+              <button type="submit" id="submit">submit</button>
+          </div>
+      </div>
+  </section>
+
+<!--Review-->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+  import { getFirestore, setDoc, addDoc, doc, collection } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJC4jpwI1QLmMaVoRDekJSrYnkcaBX3Y8",
+authDomain: "helping-hands-3df2b.firebaseapp.com",
+databaseURL: "https://helping-hands-3df2b-default-rtdb.firebaseio.com",
+projectId: "helping-hands-3df2b",
+storageBucket: "helping-hands-3df2b.appspot.com",
+messagingSenderId: "647080934849",
+appId: "1:647080934849:web:a6edf30d62931f8dd28340",
+measurementId: "G-XKGP9ZJ168"
+    };
+
+    // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const db = getFirestore(app);
+   submit.addEventListener('click', (e) => {
+
+    var name = document.getElementById('review-name');
+    var message = document.getElementById('review-text');
+    addDoc(collection(db, "review"),{
+      name : name.value,
+      message : message.value
+    });
+    alert('Review send successfully');
+   })
+</script>
+
+    <script>
+        const popupButtons = document.querySelectorAll('.popup-button');
+const popups = document.querySelectorAll('.popup');
+const closeButtons = document.querySelectorAll('.close');
+
+popupButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        popups[index].style.display = 'block';
+    });
+});
+
+closeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        popups.forEach((popup) => {
+            popup.style.display = 'none';
+        });
+    });
+});
+
+popups.forEach((popup) => {
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+</html>

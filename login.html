@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+    <title>Login & Registration</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav-button">
+          <button
+            class="btn white-btn"
+            id="loginBtn"
+            onclick="switchForm('login')"
+          >
+            Sign In
+          </button>
+          <button class="btn" id="registerBtn" onclick="switchForm('register')">
+            Sign Up
+          </button>
+        </div>
+      </nav>
+      <div class="form-box">
+        <div class="login-container" id="login">
+          <div class="top">
+            <span
+              >Don't have an account?
+              <a href="#" onclick="switchForm('register')">Sign Up</a></span
+            >
+            <header>Login</header>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="login-email"
+              class="input-field"
+              placeholder="Email"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              id="login-password"
+              class="input-field"
+              placeholder="Password"
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <button type="button" id="signin" class="submit">Sign In</button>
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="login-check" />
+              <label for="login-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label id="forgot-password"><a href="#">Forgot password?</a></label>
+            </div>
+          </div>
+        </div>
+        <div class="register-container" id="register">
+          <div class="top">
+            <span
+              >Have an account?
+              <a href="#" onclick="switchForm('login')">Login</a></span
+            >
+            <header>Sign Up</header>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="register-username"
+              class="input-field"
+              placeholder="Username"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="register-email"
+              class="input-field"
+              placeholder="Email"
+            />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              id="register-password"
+              class="input-field"
+              placeholder="Password"
+            />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <button type="button" id="signup" class="submit">Register</button>
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="register-check" />
+              <label for="register-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Terms & conditions</a></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+      import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+      } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+        sendPasswordResetEmail
+      } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDJC4jpwI1QLmMaVoRDekJSrYnkcaBX3Y8",
+        authDomain: "helping-hands-3df2b.firebaseapp.com",
+        databaseURL: "https://helping-hands-3df2b-default-rtdb.firebaseio.com",
+        projectId: "helping-hands-3df2b",
+        storageBucket: "helping-hands-3df2b.appspot.com",
+        messagingSenderId: "647080934849",
+        appId: "1:647080934849:web:a6edf30d62931f8dd28340",
+        measurementId: "G-XKGP9ZJ168",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const database = getDatabase(app);
+      const auth = getAuth(app);
+      const db = getFirestore();
+      const usersRef = collection(db, "users");
+      const forgotPassword = document.getElementById("forgot-password");
+      if (forgotPassword) {
+      forgotPassword.addEventListener("click", (e) => {
+      const email = document.getElementById("login-email").value;
+
+      sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("A password reset link has been sent to your email address.");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+     });
+    }
+
+      const signin = document.getElementById("signin");
+      if (signin) {
+        signin.addEventListener("click", (e) => {
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              const dt = new Date();
+              window.location.href = "User.html";
+              alert("User Logged In Successfully!");
+            })
+            .catch((error) => {
+              const errorMessage = error.message;
+              alert(errorMessage);
+            });
+        });
+      }
+
+      const signup = document.getElementById("signup");
+      if (signup) {
+        signup.addEventListener("click", (e) => {
+          const username = document.getElementById("register-username").value;
+          const email = document.getElementById("register-email").value;
+          const password = document.getElementById("register-password").value;
+
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              addDoc(usersRef, {
+          username: username,
+          email: email,
+          createdAt: new Date()
+           });
+              set(ref(database, "users/" + user.uid), {
+                username: username,
+                email: email,
+              });
+              alert("Registered Successfully!");
+            })
+            .catch((error) => {
+              const errorMessage = error.message;
+              alert(errorMessage);
+            });
+        });
+      }
+
+    </script>
+
+    <script>
+      function switchForm(form) {
+        var a = document.getElementById("loginBtn");
+        var b = document.getElementById("registerBtn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+
+        if (form === "login") {
+          x.style.left = "4px";
+          y.style.right = "-520px";
+          a.className += " white-btn";
+          b.className = "btn";
+          x.style.opacity = 1;
+          y.style.opacity = 0;
+        } else if (form === "register") {
+          x.style.left = "-510px";
+          y.style.right = "5px";
+          a.className = "btn";
+          b.className += " white-btn";
+          x.style.opacity = 0;
+          y.style.opacity = 1;
+        }
+      }
+    </script>
+  </body>
+</html>

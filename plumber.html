@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumber</title>
+    <link rel="stylesheet" href="plumber.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section id="service">
+        <div class="title-text">
+            <p>Services Offered</p>
+        </div>
+        <div class="service-box">
+            <div class="single-service">
+                <img src="./images/plumber-1.jpg">
+                <div class="service-desc">
+                    <h3>Residential Plumbing</h3>
+                    <hr>
+                    <p> This includes installing, repairing, and maintaining pipes, fixtures, and appliances such as sinks,
+                         toilets, showers, bathtubs, dishwashers, and washing machines.</p>
+                </div>
+                <div class="popup">
+                    <div class="popup-content">
+                      <span class="close">&times;</span>
+                      <div class="popup-header">
+                        <h2>Plumbing</h2>
+                        <p>From drips to drains, we've got you covered.</p>
+                      </div>
+                      <div class="persons-container">
+                        <div class="person">
+                          <div class="person-image">
+                            <img src="./images/plumbing-1.webp" alt="Person Image">
+                            <div class="person-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-half"></i>
+                              <span>(190)</span>
+                            </div>
+                          </div>
+                          <div class="person-info">
+                            <h3>FlowMaster Plumbing</h3>
+                            <ul>
+                                <li>Leak detection and repair</li>
+                                <li>Drain cleaning and unclogging</li>
+                                <li>Water heater installation and repair</li>
+                                <li>Pipe replacement and repair</li>
+                                <li>Bathroom and kitchen fixture installation</li>
+                            </ul>
+                            <a href="https://wa.me/9137966425" class="whatsapp-btn">
+                              <i class="fa fa-whatsapp"></i> Contact on WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                        <div class="person">
+                          <div class="person-image">
+                            <img src="./images/plumbing-2.webp" alt="Person Image">
+                            <div class="person-rating">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star-half-alt"></i>
+                              <span>(280)</span>
+                            </div>
+                          </div>
+                          <div class="person-info">
+                            <h3>The Piping Pioneers</h3>
+                            <ul>
+                                <li>Leak detection and repair</li>
+                                <li>Drain cleaning and unclogging</li>
+                                <li>Water heater installation and repair</li>
+                                <li>Pipe replacement and repair</li>
+                                <li>Bathroom and kitchen fixture installation</li>
+                            </ul>
+                            <a href="https://wa.me/9137966425" class="whatsapp-btn">
+                              <i class="fa fa-whatsapp"></i> Contact on WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn" onclick="openModal()"> Previous Works </button>
+                    <div id="modal" class="modal">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button class="back-button" onclick="closeModal()">
+                            <i class="fa fa-arrow-left"></i> Back
+                          </button>
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                        </div>
+                        <div class="image-grid">
+                          <img src="./images/prevplumber-3.jpg" alt="Image 1">
+                          <img src="./images/prevplumber-2.jpg" alt="Image 2">
+                          <img src="./images/prevplumber-1.jpg" alt="Image 3">
+                          <img src="./images/prevplumber-4.jpg" alt="Image 4">
+                        </div>
+                      </div>
+                    </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/plumber-2.jpg">
+                <div class="service-desc">
+                    <h3>New Construction Plumbing</h3>
+                    <hr>
+                    <p>It includes work on new construction projects to install plumbing systems in newly built homes, buildings, and developments.
+                         This involves reading blueprints, laying out pipe routes, installing pipes, fittings, and fixtures,
+                          and ensuring compliance with building codes and regulations. </p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/plumber-3.jpg">
+                <div class="service-desc">
+                    <h3>Commercial Plumbing</h3>
+                    <hr>
+                    <p>Plumbers handle plumbing systems in commercial buildings, offices, retail stores,
+                         restaurants, hotels, and other non-residential settings. </p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="./images/plumber-4.jpg">
+                <div class="service-desc">
+                    <h3>Maintenance and Repair</h3>
+                    <hr>
+                    <p>Routine maintenance and repair work to keep plumbing systems in good working condition.
+                         This may involve diagnosing and fixing leaks, clogs, drips, and other plumbing issues,
+                          as well as replacing worn-out or damaged pipes, valves, and fittings. </p>
+                          <button class="popup-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--Previous work-->
+     <script>
+      function openModal() {
+        document.getElementById("modal").style.display = "block";
+      }
+    
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+    
+    <!--Review-->
+    <section id="reviews">
+      <div class="title-text">
+          <p>Reviews</p>
+      </div>
+      <div class="review-container">
+          <ul id="review-list"></ul>
+          <div class="review-form">
+              <h3>Leave a Review</h3>
+              <input type="text" id="review-name" placeholder="Your Name" />
+              <textarea id="review-text" placeholder="Your Review"></textarea>
+              <button type="submit" id="submit">submit</button>
+          </div>
+      </div>
+  </section>
+
+<!--Review-->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+  import { getFirestore, setDoc, addDoc, doc, collection } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJC4jpwI1QLmMaVoRDekJSrYnkcaBX3Y8",
+authDomain: "helping-hands-3df2b.firebaseapp.com",
+databaseURL: "https://helping-hands-3df2b-default-rtdb.firebaseio.com",
+projectId: "helping-hands-3df2b",
+storageBucket: "helping-hands-3df2b.appspot.com",
+messagingSenderId: "647080934849",
+appId: "1:647080934849:web:a6edf30d62931f8dd28340",
+measurementId: "G-XKGP9ZJ168"
+    };
+
+    // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const db = getFirestore(app);
+   submit.addEventListener('click', (e) => {
+
+    var name = document.getElementById('review-name');
+    var message = document.getElementById('review-text');
+    addDoc(collection(db, "review"),{
+      name : name.value,
+      message : message.value
+    });
+    alert('Review send successfully');
+   })
+</script>
+
+    <script>
+        const popupButtons = document.querySelectorAll('.popup-button');
+const popups = document.querySelectorAll('.popup');
+const closeButtons = document.querySelectorAll('.close');
+
+popupButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        popups[index].style.display = 'block';
+    });
+});
+
+closeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        popups.forEach((popup) => {
+            popup.style.display = 'none';
+        });
+    });
+});
+
+popups.forEach((popup) => {
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+</html>

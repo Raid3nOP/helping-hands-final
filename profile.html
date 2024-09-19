@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile</title>
+  <link rel="stylesheet" type="text/css" href="profile.css">
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <form id="edit-profile-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="profile-picture">Profile Picture:</label>
+        <input type="file" id="profile-picture" name="profile-picture">
+      </div>
+      <button type="submit" class="btn">Save Changes</button>
+    </form>
+  </div>
+
+  <script >
+    const firebaseConfig = {
+        apiKey: "AIzaSyDJC4jpwI1QLmMaVoRDekJSrYnkcaBX3Y8",
+        authDomain: "helping-hands-3df2b.firebaseapp.com",
+        databaseURL: "https://helping-hands-3df2b-default-rtdb.firebaseio.com",
+        projectId: "helping-hands-3df2b",
+        storageBucket: "helping-hands-3df2b.appspot.com",
+        messagingSenderId: "647080934849",
+        appId: "1:647080934849:web:a6edf30d62931f8dd28340",
+        measurementId: "G-XKGP9ZJ168",
+  
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const storageRef = firebase.storage().ref();
+
+// Get the current user
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // Fetch the user's profile data from Firestore
+    db.collection("users").doc(user.uid).get()
+      .then((doc) => {
+        if (doc.exists) {
+          const userData = doc.data();
+          document.getElementById("name").value = userData.name;
+          document.getElementById("email").value = userData.email
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting user data: ", error);
+      });
+  } else {
+    // Redirect the user to the login page or handle the case when no user is signed in
+  }
+});
+
+// Handle the form submission
+document.getElementById("edit-profile-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const bio = document.getElementById("bio").value;
+  const profilePicture = document.getElementById("profile-picture").files[0];
+
+  // Update the user's profile data in Firestore
+  firebase.auth().currentUser.updateEmail(email)
+    .then(() => {
+      db.collection("users").doc(firebase.auth().currentUser.uid).update({
+        name,
+        email,
+        bio
+      })
+      .then(() => {
+        console.log("User profile updated successfully!");
+
+        // Upload the new profile picture to Firebase Storage
+        if (profilePicture) {
+          const profilePictureRef = storageRef.child(`users/${firebase.auth().currentUser.uid}/profile.jpg`);
+          profilePictureRef.put(profilePicture)
+            .then(() => {
+              console.log("Profile picture uploaded successfully!");
+            })
+            .catch((error) => {
+              console.error("Error uploading profile picture: ", error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.error("Error updating user profile: ", error);
+      });
+    })
+    .catch((error) => {
+      console.error("Error updating email: ", error);
+    });
+});
+  </script>
+</body>
+</html>
